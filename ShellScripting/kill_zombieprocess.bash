@@ -3,7 +3,7 @@
 
 
  function kill_zombies {
-	#find all zombie process and store their PID's in an array
+	# find all zombie process and store their PID's in an array
         zombies=($(ps aux | awk '{ if ($8 == "Z") print $2 }'))
 
 	#check if there is any zombie process
