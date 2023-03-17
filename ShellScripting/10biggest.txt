@@ -1,0 +1,5 @@
+8 ./kill_zombieprocess.bash
+8 ./10biggestfile_in_filesystem_output.bash
+0 ./test.txt
+0 ./10biggestfile_in_filesystem_output
+0 ./10biggest.txt
