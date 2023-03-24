@@ -1,0 +1,24 @@
+#!/bin/bash 
+
+# send a mail to the the team when a ping to a server fails
+
+function mailDevopsTeamOnDownTime {
+# teams will taking in team emails
+  team=("m1" "m2"  "m")
+
+  for i in $@
+  do
+  # echo first $i
+  ping -c 1 $i &> /dev/null
+  
+    if [ $? -ne 0 ]; then
+      echo $?
+      # for i in ${team[@]}; 
+      # do
+      # echo i got here
+      # done 
+    fi
+  done
+}
+
+mailDevopsTeamOnDownTime google.com yahoo.com 192.168.2.2 192.1.1.1
