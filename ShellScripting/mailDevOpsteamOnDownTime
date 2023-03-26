@@ -3,8 +3,8 @@
 # send a mail to the the team when a ping to a server fails
 
 function mailDevopsTeamOnDownTime {
-# teams will taking in team emails
-  team=("m1" "m2"  "m")
+# teams will take in team emails
+  team=("teammember1@gmail.com" "teammemeber2gmail.com"  "teammemeber3gmail.com")
 
   for i in $@
   do
@@ -12,13 +12,16 @@ function mailDevopsTeamOnDownTime {
   ping -c 1 $i &> /dev/null
   
     if [ $? -ne 0 ]; then
-      echo $?
-      # for i in ${team[@]}; 
-      # do
-      # echo i got here
-      # done 
+      for t in ${team[@]}; 
+      do
+      # mail 
+      # -c cc
+      # -b bcc
+      echo $i $t
+      echo  "`date`: ping failed. $i host is down" | mail -s "$i host is down" $t
+      done 
     fi
   done
 }
 
-mailDevopsTeamOnDownTime google.com yahoo.com 192.168.2.2 192.1.1.1
+mailDevopsTeamOnDownTime google.com yahoo.com 192.168.2.2 192.1.1.1 192.1.1.6774
